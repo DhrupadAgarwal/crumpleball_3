@@ -8,7 +8,7 @@ var office
 var shooter
 
 function preload() {
-    office = loadImage("images/office1.jpg")
+    office = loadImage("office1.jpg")
 }
 
 function setup(){
