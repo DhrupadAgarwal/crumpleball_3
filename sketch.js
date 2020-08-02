@@ -1,9 +1,11 @@
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
+const Constraint = Matter.Constraint
 
 var engine, world;
 var office
+var shooter
 
 function preload() {
     office = loadImage("images/office1.jpg")
@@ -16,10 +18,10 @@ function setup(){
 
 
     ground = new Ground(800,390,1600,20)
-    paper = new Paper(200,100)
+    paper = new Paper(200,200)
     dustbin = new Dustbin(1000,290,200,20)
 
-    shooter = new Shooter(paper.body,{x:200, y:50})
+    shooter = new Shooter(paper.body,{x:200, y:100})
 
 }
 
@@ -32,7 +34,7 @@ function keyPressed (){
 }
 
 function draw(){
-    background(0);
+    background("red");
     image(office,800,200,1600,500)
     Engine.update(engine);  
     ground.display();
@@ -43,7 +45,7 @@ function draw(){
 }
 
 function mouseDragged(){
-    matter.body.setPosition(bird.body, {x: mouseX , y: mouseY});
+    Matter.Body.setPosition(paper.body, {x: mouseX , y: mouseY});
 }
 
 function mouseReleased(){
